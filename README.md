@@ -21,7 +21,7 @@
 
 ## ----------- thats all from my side--------
 
-### I implement simple route with backend and implement with redux because i am more comfort to backend and front. I can more beautifull design if some instruct me about design or some one give me figma file. Please pardon me for all fault and error.
+### I implement simple route with backend and implement with redux because i am more comfort to frontend and backend. I can more beautifull design if some instruct me about design or some one give me figma file. Please pardon me for all fault and error.
 
 
 

@@ -1,9 +1,28 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Home, LayoutDashboard, Menu, PlusCircle, Settings } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { NavLink, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
+
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+
   // Active link style function
   const getLinkStyle = ({ isActive }:any) => 
     isActive 
@@ -13,7 +32,7 @@ const DashboardLayout = () => {
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content bg-gray-50">
+      <div className="drawer-content  dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
         <label
           htmlFor="my-drawer-2"
           className="btn bg-white hover:bg-gray-100 border-none shadow-sm drawer-button lg:hidden"
@@ -30,7 +49,7 @@ const DashboardLayout = () => {
           className="drawer-overlay"
         ></label>
         
-        <div className="menu p-4 w-72 min-h-full bg-gray-900 text-base-content">
+        <div className="menu p-4 w-72 min-h-full bg-gray-900 dark:bg-gray-800 text-base-content">
           {/* Logo Area */}
           <div className="flex items-center gap-3 px-2 py-5 mb-6 border-b border-gray-700">
             <LayoutDashboard className="text-indigo-500" size={28} />
@@ -88,6 +107,14 @@ const DashboardLayout = () => {
                 </NavLink>
               </li>
             </ul>
+          
+            <button
+              className="p-2 my-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-900"
+              onClick={toggleTheme}
+            >
+              {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+            </button>
+        
           </div>
         </div>
       </div>
@@ -280,6 +307,125 @@ export default DashboardLayout;
 //             {/* Same NavLinks as desktop */}
 //           </nav>
 //         </aside>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default DashboardLayout;
+
+// /* eslint-disable @typescript-eslint/no-explicit-any */
+// import { Home, LayoutDashboard, Menu, PlusCircle, Settings } from "lucide-react";
+// import { useEffect, useState } from "react";
+// import { NavLink, Outlet } from "react-router-dom";
+
+// const DashboardLayout = () => {
+//   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+//   useEffect(() => {
+//     if (theme === "dark") {
+//       document.documentElement.classList.add("dark");
+//       localStorage.setItem("theme", "dark");
+//     } else {
+//       document.documentElement.classList.remove("dark");
+//       localStorage.setItem("theme", "light");
+//     }
+//   }, [theme]);
+
+//   const toggleTheme = () => {
+//     setTheme(theme === "light" ? "dark" : "light");
+//   };
+
+//   // Function to get active link styling
+//   const getLinkStyle = ({ isActive }: any) =>
+//     isActive
+//       ? "bg-indigo-600 text-white font-medium"
+//       : "text-gray-300 dark:text-gray-400 hover:bg-gray-700/50 hover:text-white";
+
+//   return (
+//     <div className="drawer lg:drawer-open">
+//       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+//       <div className="drawer-content dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+//         {/* Drawer toggle for small screens */}
+//         <label
+//           htmlFor="my-drawer-2"
+//           className="btn bg-white hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 border-none shadow-sm drawer-button lg:hidden"
+//         >
+//           <Menu size={24} className="text-gray-700 dark:text-gray-300" />
+//         </label>
+//         {/* Main content area */}
+//         <Outlet />
+//       </div>
+
+//       <div className="drawer-side">
+//         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
+//         <div className="menu p-4 w-72 min-h-full bg-gray-900 text-base-content">
+//           {/* Logo and branding */}
+//           <div className="flex items-center gap-3 px-2 py-5 mb-6 border-b border-gray-700">
+//             <LayoutDashboard className="text-indigo-500" size={28} />
+//             <span className="text-xl font-bold text-white tracking-wide">
+//               PropertyHub
+//             </span>
+//           </div>
+
+//           {/* Navigation links */}
+//           <div className="mb-4">
+//             <ul className="space-y-1.5">
+//               <li>
+//                 <NavLink
+//                   to="/dashboard"
+//                   className={getLinkStyle}
+//                 >
+//                   <Home size={20} className="text-indigo-400" />
+//                   <span>Dashboard Home</span>
+//                 </NavLink>
+//               </li>
+//               <li>
+//                 <NavLink
+//                   to="/dashboard/add-products"
+//                   className={getLinkStyle}
+//                 >
+//                   <PlusCircle size={20} className="text-indigo-400" />
+//                   <span>Add Products</span>
+//                 </NavLink>
+//               </li>
+//               <li>
+//                 <NavLink
+//                   to="/dashboard/manage-products"
+//                   className={getLinkStyle}
+//                 >
+//                   <Settings size={20} className="text-indigo-400" />
+//                   <span>Manage Products</span>
+//                 </NavLink>
+//               </li>
+//             </ul>
+//           </div>
+
+//           <div className="divider before:bg-gray-700 after:bg-gray-700 my-6"></div>
+
+//           {/* Return to home and theme toggle */}
+//           <div>
+//             <ul>
+//               <li>
+//                 <NavLink
+//                   to="/"
+//                   className={getLinkStyle}
+//                 >
+//                   <Home size={20} className="text-indigo-400" />
+//                   <span>Home</span>
+//                 </NavLink>
+//               </li>
+//             </ul>
+
+//             {/* Theme toggle button */}
+//             <button
+//               className="p-2 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 border-2 border-white mt-4"
+//               onClick={toggleTheme}
+//             >
+//               {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+//             </button>
+//           </div>
+//         </div>
 //       </div>
 //     </div>
 //   );

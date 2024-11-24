@@ -1,9 +1,26 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo/logo.png";
+import { useEffect, useState } from "react";
 
 
 const Navbar = () => {
  
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
 
   const navItem = (
     <>
@@ -58,7 +75,14 @@ const Navbar = () => {
         <div className="hidden navbar-center  lg:flex">
           <ul className="px-1 menu menu-horizontal">{navItem}</ul>
         </div>
-       
+        <div className="navbar-end">
+          <button
+            className="p-2 rounded-md bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            onClick={toggleTheme}
+          >
+            {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+          </button>
+        </div>
       </div>
     </>
   );

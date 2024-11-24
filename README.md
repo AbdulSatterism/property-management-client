@@ -1,41 +1,27 @@
-<!--
 
---------Instruction--------------
-font-end technology :
-1. React Vite, typescript, Redux toolkit, and Redux RTK ,
-2. design purpose :  tailwind css and daisy ui. and equvilant technology.
 
-* My website name : ABS Sports
-#Functionality :
-------------Home---------
-* Have a home slider where show latest 3 product image.
-* Have home Features product where show latest 4 product and 3 product under have a all product button
-* have category featutes it's define all category.
 
------------Nav and footer ----------
-* Have a nav bar and footer
+# font-end technology :
 
--------- not found and success route -------------
-* have success route and 404 route. where success route for confirmed order with cash on delivery
+## React Vite, typescript, Redux RTK Query ,
+## design purpose :  tailwind css and daisy ui. and equvilant technology.
+## for some icon from react lucid
 
---------all products pages --------------
+# ------Instruction and task description
 
-* all product route has 5 Functionality , search by name , filter by price , category,brand, and maximum price minimum price, filter by rating details button every product have pagination initially per page show 6 products
+## implement navbar, footer and home page for looking good.
 
-------single product details -------
-* details product page has some Functionality like here show all things and add to cart button it's work only Redux store locally
+## implement Dashboard layout and implement dashboard home page => here show static data with stats and graph chart . 
 
--------management part--------
-*have product management page where have side bar and where user can add product, update product, delete product,
+## implement add product page => here user can added a product and it's store in mongodb database
 
-------------cart ---------
-*cart pages has some Functionality where user can increase and decrease product quantity and delete product from cart
+## manage product page => here show a table with filtering method. there action section is static not deleteable.
 
-----place order ------
-*place order take user info with total payable amount and it's implement for cash on delivery
-*after place order create a user .
+## implement dark mode and light mode 
 
-------------------Thats all about my development---------
+## ----------- thats all from my side--------
+
+### I implement simple route with backend and implement with redux because i am more comfort to backend and front. I can more beautifull design if some instruct me about design or some one give me figma file. Please pardon me for all fault and error.
 
 
 
@@ -49,35 +35,5 @@ font-end technology :
 
 
 
- -->
 
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

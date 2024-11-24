@@ -25,18 +25,18 @@ const AllProducts = () => {
 
   return (
     <div>
-      <div className="my-12 p-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
+      <div className="p-4 grid grid-cols-1 gap-4 lg:grid-cols-3 mx-auto">
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-indigo-600"
+          className="w-full px-4 dark:text-white dark:bg-gray-700  py-2 border rounded-lg shadow-sm focus:ring-indigo-600"
           placeholder="Search by name"
         />
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="w-full px-4 py-2 border rounded-lg shadow-sm focus:ring-indigo-600"
+          className="w-full px-4 py-2 dark:text-white dark:bg-gray-700  border rounded-lg shadow-sm focus:ring-indigo-600"
         >
           <option value="">All Categories</option>
           <option value="Apartment">Apartment</option>

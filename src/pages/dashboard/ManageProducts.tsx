@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { MdDelete } from "react-icons/md";
 import Loading from "../../components/Loading/Loading";
 import { TProducts } from "../../types/types";

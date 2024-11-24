@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import Loading from "../../components/Loading/Loading";
 import { TProducts } from "../../types/types";
